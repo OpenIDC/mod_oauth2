@@ -17,3 +17,4 @@
 /.settings/
 /.libs/
 /mod_oauth2.la
+.vs/mod_oauth2/v16
