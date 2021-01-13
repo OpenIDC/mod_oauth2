@@ -84,8 +84,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(ProjectDir)target\httpd-2.4.41-win64-VS16\Apache24\include;$(ProjectDir)cjose\include;$(ProjectDir)\vcpkg\installed\x64-windows\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)include;$(ProjectDir)..\liboauth2\include;$(ProjectDir)..\liboauth2\vcpkg\installed\x64-windows\include;$(ProjectDor)..\liboauth2\target\httpd-2.4.46-win64-VS16\Apache24\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)..\liboauth2\vcpkg\installed\x64-windows\lib;$(ProjectDir)..\liboauth2\cjose\x64\Release;$(ProjectDir)..\liboauth2\target\httpd-2.4.46-win64-VS16\Apache24\lib;$(ProjectDir)..\liboauth2\x64\Release;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -158,7 +158,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\mod_oauth2.c" />
-    <ClCompile Include="src\version.c" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

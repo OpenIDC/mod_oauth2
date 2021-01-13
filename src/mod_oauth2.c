@@ -241,6 +241,7 @@ static const authz_provider oauth2_authz_claim_provider = {
     &oauth2_authz_checker_claim, NULL};
 
 #define OAUTH2_REQUIRE_OAUTH2_CLAIM "oauth2_claim"
+#define OAUTH2_PACKAGE_NAME_VERSION "mod_oauth2-3.2.0D"
 
 OAUTH2_APACHE_HANDLERS(oauth2)
 
@@ -264,8 +265,10 @@ static void oauth2_register_hooks(apr_pool_t *p)
 
 OAUTH2_APACHE_CMD_ARGS1(oauth2, oauth2_cfg_dir_t, passphrase,
 			oauth2_crypto_passphrase_set, NULL)
+
 OAUTH2_APACHE_CMD_ARGS2(oauth2, oauth2_cfg_dir_t, cache, oauth2_cfg_set_cache,
 			NULL)
+
 OAUTH2_APACHE_CMD_ARGS3(oauth2, oauth2_cfg_dir_t, token_verify,
 			oauth2_cfg_token_verify_add_options, &cfg->verify)
 OAUTH2_APACHE_CMD_ARGS2(oauth2, oauth2_cfg_dir_t, accept_token_in,
