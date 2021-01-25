@@ -4,6 +4,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mod_oauth2", "mod_oauth2.vcxproj", "{7CDF9456-EB3A-41FE-94A0-DCCBC5F958C9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{81B3148C-A94F-4A17-B513-C7B4E45A17EB} = {81B3148C-A94F-4A17-B513-C7B4E45A17EB}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libauth2", "..\liboauth2\libauth2.vcxproj", "{81B3148C-A94F-4A17-B513-C7B4E45A17EB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +26,14 @@ Global
 		{7CDF9456-EB3A-41FE-94A0-DCCBC5F958C9}.Release|x64.Build.0 = Release|x64
 		{7CDF9456-EB3A-41FE-94A0-DCCBC5F958C9}.Release|x86.ActiveCfg = Release|Win32
 		{7CDF9456-EB3A-41FE-94A0-DCCBC5F958C9}.Release|x86.Build.0 = Release|Win32
+		{81B3148C-A94F-4A17-B513-C7B4E45A17EB}.Debug|x64.ActiveCfg = Debug|x64
+		{81B3148C-A94F-4A17-B513-C7B4E45A17EB}.Debug|x64.Build.0 = Debug|x64
+		{81B3148C-A94F-4A17-B513-C7B4E45A17EB}.Debug|x86.ActiveCfg = Debug|Win32
+		{81B3148C-A94F-4A17-B513-C7B4E45A17EB}.Debug|x86.Build.0 = Debug|Win32
+		{81B3148C-A94F-4A17-B513-C7B4E45A17EB}.Release|x64.ActiveCfg = Release|x64
+		{81B3148C-A94F-4A17-B513-C7B4E45A17EB}.Release|x64.Build.0 = Release|x64
+		{81B3148C-A94F-4A17-B513-C7B4E45A17EB}.Release|x86.ActiveCfg = Release|Win32
+		{81B3148C-A94F-4A17-B513-C7B4E45A17EB}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
