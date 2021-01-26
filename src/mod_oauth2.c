@@ -241,7 +241,6 @@ static const authz_provider oauth2_authz_claim_provider = {
     &oauth2_authz_checker_claim, NULL};
 
 #define OAUTH2_REQUIRE_OAUTH2_CLAIM "oauth2_claim"
-#define OAUTH2_PACKAGE_NAME_VERSION "mod_oauth2-3.2.0D"
 
 OAUTH2_APACHE_HANDLERS(oauth2)
 
