@@ -248,12 +248,16 @@ static void oauth2_register_hooks(apr_pool_t *p)
 {
 	ap_hook_post_config(OAUTH2_APACHE_POST_CONFIG(oauth2), NULL, NULL,
 			    APR_HOOK_MIDDLE);
-	static const char * const authzSucc[] = {"mod_auth_openidc.c", NULL};
-	ap_hook_check_authn(oauth2_check_user_id_handler, NULL, authzSucc,
+
+	static const char *const aszPre[] = {"mod_ssl.c", NULL};
+	static const char *const aszSucc[] = {"mod_auth_openidc.c", NULL};
+	ap_hook_check_authn(oauth2_check_user_id_handler, aszPre, aszSucc,
 			    APR_HOOK_MIDDLE, AP_AUTH_INTERNAL_PER_CONF);
+
 	ap_register_auth_provider(
 	    p, AUTHZ_PROVIDER_GROUP, OAUTH2_REQUIRE_OAUTH2_CLAIM, "0",
 	    &oauth2_authz_claim_provider, AP_AUTH_INTERNAL_PER_CONF);
+
 	// TODO: register content handler for "special" stuff like returning the
 	// JWKs that
 	//       the peer may use to encrypt the token and the private key
