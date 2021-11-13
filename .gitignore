@@ -20,3 +20,7 @@
 .vs/mod_oauth2/v16
 .vs/mod_oauth2/v15
 x64
+/config.sub~
+/configure
+~/config.guess~
+target
