@@ -1,3 +1,5 @@
+[![Build Status](https://github.com/OpenIDC/mod_oauth2/actions/workflows/build.yml/badge.svg)](https://github.com/OpenIDC/mod_oauth2/actions/workflows/build.yml)
+
 # mod_oauth2
 
 A module for Apache HTTP Server 2.x that makes the Apache web server operate as a OAuth 2.0 Resource Server,
@@ -29,10 +31,11 @@ For a detailed overview of configuration options see the `oauth2.conf` Apache co
 
 ## Features
 
-As provided by the [`liboauth2`](https://github.com/zmartzone/liboauth2) dependency, including:
+As provided by the [`liboauth2`](https://github.com/OpenIDC/liboauth2) dependency, including:
 - per-directory configuration over per-virtual host
 - flexible cache configuration per cached element type
 - specify multiple token verification options, tried sequentially (allow for key/algo rollover)
+- claims-based authorization capabilities see: https://github.com/OpenIDC/mod_oauth2/wiki#authorization
 - etc.
 
 
@@ -40,15 +43,15 @@ As provided by the [`liboauth2`](https://github.com/zmartzone/liboauth2) depende
 
 #### Community Support
 For generic questions, see the Wiki pages with Frequently Asked Questions at:  
-  [https://github.com/zmartzone/mod_oauth2/wiki](https://github.com/zmartzone/mod_oauth2/wiki)  
+  [https://github.com/OpenIDC/mod_oauth2/wiki](https://github.com/OpenIDC/mod_oauth2/wiki)  
 Any questions/issues should go to issues tracker.
 
 #### Commercial Services
 For commercial Support contracts, Professional Services, Training and use-case specific support you can contact:  
-  [sales@zmartzone.eu](mailto:sales@zmartzone.eu)  
+  [sales@openidc.com](mailto:sales@openidc.com)  
 
 
 Disclaimer
 ----------
-*This software is open sourced by ZmartZone IAM. For commercial support
-you can contact [ZmartZone IAM](https://www.zmartzone.eu) as described above in the [Support](#support) section.*
+*This software is open sourced by OpenIDC. For commercial support
+you can contact [OpenIDC](https://www.openidc.com) as described above in the [Support](#support) section.*

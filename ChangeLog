@@ -1,3 +1,10 @@
+10/25/2023
+- correct documentation wrt. cache encryption passphrase; see #52; thanks @webermax
+- depend on liboauth2 >= 1.5.1; see https://github.com/OpenIDC/liboauth2/issues/44
+
+03/08/2023
+- move repo to OpenIDC github organization
+
 01/21/2023
 - clean WWW-Authenticate header in main request as well if this is a subrequest; closes #42
   this avoids the WWW-Authenticate header to be sent in HTTP 200 responses; thanks @ErmakovDmitriy
