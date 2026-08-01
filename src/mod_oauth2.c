@@ -114,12 +114,21 @@ static int oauth2_request_handler(oauth2_cfg_source_token_t *cfg,
 
 	if (oauth2_token_verify(ctx->log, ctx->request, verify, source_token,
 				&json_token, &status_code) == false) {
-		if ((status_code >= 400) && (status_code < 500)) {
-			rv = oauth2_apache_return_www_authenticate(
-			    cfg, ctx, status_code, OAUTH2_ERROR_INVALID_TOKEN,
-			    "Token could not be verified.");
-		} else {
+		// a server error is relayed as-is; anything else results in a
+		// 401 with a WWW-Authenticate header, including a status code
+		// that was left unset (0) by an older liboauth2, since
+		// returning that to Apache would signal OK without a user
+		// being set, which results in a 500 (AH00027)
+		if ((status_code >= 500) && (status_code < 600)) {
 			rv = status_code;
+		} else {
+			rv = oauth2_apache_return_www_authenticate(
+			    cfg, ctx,
+			    ((status_code >= 400) && (status_code < 500))
+				? status_code
+				: HTTP_UNAUTHORIZED,
+			    OAUTH2_ERROR_INVALID_TOKEN,
+			    "Token could not be verified.");
 		}
 		goto end;
 	}

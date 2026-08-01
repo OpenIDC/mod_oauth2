@@ -1,3 +1,15 @@
+08/01/2026
+- return a 401 instead of a 500 when a token is rejected without an HTTP status
+  code being set by liboauth2, which is the case for any locally detected JWT
+  verification failure i.e. expiry, signature mismatch, "iss"/"aud"/"nbf"
+  validation; the unset status code (0) was returned to Apache as OK, without a
+  user being set, upon which Apache logs "AH00027: No authentication done but
+  request not allowed without authentication" and returns a 500; only a 5xx is
+  now relayed as-is, anything else results in a 401 with a WWW-Authenticate
+  header; liboauth2 >= 2.3.1 sets the status code itself, this covers older
+  versions as well
+  thanks @smanolache; closes #94
+
 05/23/2026
 - depend on liboauth2 >= 2.2.1 with updated so.1 link
 - release 4.2.0
