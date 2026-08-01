@@ -1,4 +1,13 @@
 08/01/2026
+- document the "encoding" option on OAuth2TargetPass, which controls how claim
+  values are encoded into headers and environment variables; a claim value is
+  UTF-8 but an HTTP header field value is US-ASCII, so a claim such as "Cem
+  Özdemir" produced a header that strict clients reject. liboauth2 >= 2.3.1
+  now defaults this to "latin1" (ISO-8859-1, anything that does not fit becomes
+  "?"); "base64url" keeps the value intact and "none" restores the previous
+  behaviour. NB: against liboauth2 2.3.0 and older the option is silently
+  ignored, so the dependency wants raising to >= 2.3.1 at the next release
+  thanks @maltesmann; closes #77
 - return a 401 instead of a 500 when a token is rejected without an HTTP status
   code being set by liboauth2, which is the case for any locally detected JWT
   verification failure i.e. expiry, signature mismatch, "iss"/"aud"/"nbf"
